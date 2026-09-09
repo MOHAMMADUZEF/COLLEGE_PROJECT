@@ -62,66 +62,79 @@ function savePrescriptions(prescriptions) {
 // ================================================================
 
 function seedData() {
-    // Seed DOCTORS only (no patients, appointments, or records)
+    // ONLY seed doctors - everything else starts empty
     if (!localStorage.getItem('doctors')) {
         const doctors = [
-            { id: 'd1', name: 'Dr. Alice Williams', specialty: 'Cardiology', email: 'alice@hospital.com', phone: '+1 234 567 800', availability: 'Mon-Fri, 9:00 AM - 5:00 PM' },
-            { id: 'd2', name: 'Dr. Robert Chen', specialty: 'Neurology', email: 'robert@hospital.com', phone: '+1 234 567 801', availability: 'Mon-Thu, 8:00 AM - 4:00 PM' },
-            { id: 'd3', name: 'Dr. Maria Garcia', specialty: 'Pediatrics', email: 'maria@hospital.com', phone: '+1 234 567 802', availability: 'Tue-Sat, 10:00 AM - 6:00 PM' },
-            { id: 'd4', name: 'Dr. James Taylor', specialty: 'Orthopedics', email: 'james@hospital.com', phone: '+1 234 567 803', availability: 'Mon-Fri, 8:30 AM - 5:30 PM' },
-            { id: 'd5', name: 'Dr. Lisa Anderson', specialty: 'Dermatology', email: 'lisa@hospital.com', phone: '+1 234 567 804', availability: 'Wed-Mon, 9:00 AM - 5:00 PM' },
-            // Add your new doctors here
-            { id: 'd6', name: 'Dr. Sarah Patel', specialty: 'General Medicine', email: 'sarah@hospital.com', phone: '+1 234 567 805', availability: 'Mon-Sat, 8:00 AM - 6:00 PM' },
-            { id: 'd7', name: 'Dr. John Kim', specialty: 'Family Medicine', email: 'john@hospital.com', phone: '+1 234 567 806', availability: 'Mon-Fri, 9:00 AM - 7:00 PM' }
+            { 
+                id: 'd1', 
+                name: 'Dr. Alice Williams', 
+                specialty: 'Cardiology', 
+                email: 'alice@hospital.com', 
+                phone: '+1 234 567 800', 
+                availability: 'Mon-Fri, 9:00 AM - 5:00 PM' 
+            },
+            { 
+                id: 'd2', 
+                name: 'Dr. Robert Chen', 
+                specialty: 'Neurology', 
+                email: 'robert@hospital.com', 
+                phone: '+1 234 567 801', 
+                availability: 'Mon-Thu, 8:00 AM - 4:00 PM' 
+            },
+            { 
+                id: 'd3', 
+                name: 'Dr. Maria Garcia', 
+                specialty: 'Pediatrics', 
+                email: 'maria@hospital.com', 
+                phone: '+1 234 567 802', 
+                availability: 'Tue-Sat, 10:00 AM - 6:00 PM' 
+            },
+            { 
+                id: 'd4', 
+                name: 'Dr. James Taylor', 
+                specialty: 'Orthopedics', 
+                email: 'james@hospital.com', 
+                phone: '+1 234 567 803', 
+                availability: 'Mon-Fri, 8:30 AM - 5:30 PM' 
+            },
+            { 
+                id: 'd5', 
+                name: 'Dr. Lisa Anderson', 
+                specialty: 'Dermatology', 
+                email: 'lisa@hospital.com', 
+                phone: '+1 234 567 804', 
+                availability: 'Wed-Mon, 9:00 AM - 5:00 PM' 
+            },
+            // Add more doctors for cold/cough/headache
+            { 
+                id: 'd6', 
+                name: 'Dr. Sarah Patel', 
+                specialty: 'General Medicine', 
+                email: 'sarah@hospital.com', 
+                phone: '+1 234 567 805', 
+                availability: 'Mon-Sat, 8:00 AM - 6:00 PM' 
+            },
+            { 
+                id: 'd7', 
+                name: 'Dr. John Kim', 
+                specialty: 'Family Medicine', 
+                email: 'john@hospital.com', 
+                phone: '+1 234 567 806', 
+                availability: 'Mon-Fri, 9:00 AM - 7:00 PM' 
+            }
         ];
         saveDoctors(doctors);
     }
 
-    // ONLY seed doctors - NO patients, appointments, or records
-    // This ensures the app starts empty except for doctors
+    // DO NOT seed patients, appointments, records, or prescriptions
+    // This ensures the app starts completely empty except for doctors
+    
+    // If you want to ensure old sample data is removed, uncomment this:
+    // localStorage.removeItem('patients');
+    // localStorage.removeItem('appointments');
+    // localStorage.removeItem('medicalRecords');
+    // localStorage.removeItem('prescriptions');
 }
-
-    // Seed Appointments
-    if (!localStorage.getItem('appointments')) {
-        const today = new Date().toISOString().split('T')[0];
-        const appointments = [
-            { id: 'a1', patientId: 'p1', doctorId: 'd1', date: today, time: '09:00', status: 'scheduled', reason: 'Chest pain' },
-            { id: 'a2', patientId: 'p2', doctorId: 'd3', date: today, time: '10:30', status: 'scheduled', reason: 'Child vaccination' },
-            { id: 'a3', patientId: 'p3', doctorId: 'd2', date: today, time: '14:00', status: 'scheduled', reason: 'Migraine' },
-            { id: 'a4', patientId: 'p4', doctorId: 'd5', date: today, time: '15:30', status: 'scheduled', reason: 'Skin rash' },
-            { id: 'a5', patientId: 'p5', doctorId: 'd4', date: today, time: '11:00', status: 'completed', reason: 'Knee pain' }
-        ];
-        saveAppointments(appointments);
-    }
-
-    // Seed Medical Records
-    if (!localStorage.getItem('medicalRecords')) {
-        const records = [
-            { id: 'r1', patientId: 'p1', diagnosis: 'Hypertension', treatment: 'Lisinopril 10mg', notes: 'Monitor blood pressure weekly', date: '2024-01-15' },
-            { id: 'r2', patientId: 'p2', diagnosis: 'Allergic Rhinitis', treatment: 'Antihistamines', notes: 'Avoid pollen exposure', date: '2024-02-20' },
-            { id: 'r3', patientId: 'p3', diagnosis: 'Migraine', treatment: 'Sumatriptan 50mg', notes: 'Take at onset of symptoms', date: '2024-03-10' },
-            { id: 'r4', patientId: 'p4', diagnosis: 'Acne Vulgaris', treatment: 'Topical Retinoids', notes: 'Apply nightly', date: '2024-04-05' },
-            { id: 'r5', patientId: 'p5', diagnosis: 'Osteoarthritis', treatment: 'Physical therapy', notes: 'Exercise daily', date: '2024-05-20' }
-        ];
-        saveMedicalRecords(records);
-    }
-
-    // Seed Prescriptions
-    if (!localStorage.getItem('prescriptions')) {
-        const prescriptions = [
-            { id: 'rx1', patientId: 'p1', doctorId: 'd1', medication: 'Lisinopril', dosage: '10mg', refillDate: '2025-12-15', status: 'active', instructions: 'Take once daily' },
-            { id: 'rx2', patientId: 'p2', doctorId: 'd3', medication: 'Cetirizine', dosage: '10mg', refillDate: '2025-11-20', status: 'active', instructions: 'Take as needed' },
-            { id: 'rx3', patientId: 'p3', doctorId: 'd2', medication: 'Sumatriptan', dosage: '50mg', refillDate: '2025-10-10', status: 'active', instructions: 'Take at onset of migraine' },
-            { id: 'rx4', patientId: 'p5', doctorId: 'd4', medication: 'Ibuprofen', dosage: '400mg', refillDate: '2025-09-20', status: 'discontinued', instructions: 'Take with food' }
-        ];
-        savePrescriptions(prescriptions);
-    }
-
-
-// ================================================================
-//  AUTHENTICATION
-// ================================================================
-
 function checkAuth() {
     if (!localStorage.getItem('isLoggedIn')) {
         window.location.href = 'login.html';
