@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Records - Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="register-page">
+        <div class="register-card">
+            <div class="register-header">
+                <div class="logo">🏥</div>
+                <h1>Patient Registration</h1>
+                <p>Create a new patient account</p>
+            </div>
+            
+            <form id="registerForm">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h4>Personal Information</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" id="regName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <input type="date" id="regDob">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select id="regGender">
+                                <option value="">Select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Blood Group</label>
+                            <select id="regBloodGroup">
+                                <option value="">Select</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="form-section">
+                    <h4>Contact Information</h4>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="regEmail" placeholder="patient@email.com">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="text" id="regPhone" placeholder="+1 234 567 890">
+                        </div>
+                        <div class="form-group">
+                            <label>Emergency Contact</label>
+                            <input type="text" id="regEmergency" placeholder="+1 234 567 891">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" id="regAddress" placeholder="123 Main St, City, State, ZIP">
+                    </div>
+                </div>
+
+                <!-- Insurance Information -->
+                <div class="form-section">
+                    <h4>Insurance Information</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Insurance Provider</label>
+                            <input type="text" id="regInsurance" placeholder="Insurance company">
+                        </div>
+                        <div class="form-group">
+                            <label>Policy Number</label>
+                            <input type="text" id="regPolicy" placeholder="Policy number">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Insurance Expiry</label>
+                            <input type="date" id="regInsuranceExpiry">
+                        </div>
+                        <div class="form-group">
+                            <label>Group Number</label>
+                            <input type="text" id="regGroupNumber" placeholder="Group number">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Information -->
+                <div class="form-section">
+                    <h4>Medical Information</h4>
+                    <div class="form-group">
+                        <label>Allergies (separate with commas)</label>
+                        <input type="text" id="regAllergies" placeholder="Peanuts, Penicillin, Latex">
+                    </div>
+                    <div class="form-group">
+                        <label>Current Medications</label>
+                        <input type="text" id="regMedications" placeholder="Lisinopril 10mg, Metformin 500mg">
+                    </div>
+                    <div class="form-group">
+                        <label>Pre-existing Conditions</label>
+                        <input type="text" id="regConditions" placeholder="Hypertension, Diabetes">
+                    </div>
+                </div>
+
+                <!-- Account Setup -->
+                <div class="form-section">
+                    <h4>Account Setup</h4>
+                    <div class="form-group">
+                        <label>Username *</label>
+                        <input type="text" id="regUsername" placeholder="Choose a username" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password *</label>
+                        <input type="password" id="regPassword" placeholder="Create a password" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-register">Register Patient</button>
+            </form>
+
+            <div class="register-footer">
+                Already have an account? <a href="login.html">Login here</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
