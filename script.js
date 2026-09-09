@@ -1,12 +1,3 @@
-// ================================================================
-//  PATIENT RECORDS SYSTEM - COMPLETE JAVASCRIPT
-//  Version: 2.0 (with Registration)
-// ================================================================
-
-// ================================================================
-//  DATA STORAGE FUNCTIONS
-// ================================================================
-
 // ----- Patients -----
 function getPatients() {
     try { return JSON.parse(localStorage.getItem('patients')) || []; } 
@@ -159,7 +150,7 @@ function checkAuth() {
 
 function loginUser(username, password) {
     // Check admin login
-    if (username === 'admin' && password === 'admin123') {
+    if (username === 'admin' && password === 'admin@$123') {
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('username', username);
         localStorage.setItem('userRole', 'admin');
@@ -1199,3 +1190,25 @@ console.log('👨‍⚕️ Doctors: Manage doctor directory');
 console.log('📋 Medical History: View patient medical records');
 console.log('💊 Prescriptions: Manage prescriptions');
 console.log('📝 Registration: New patients can register');
+// ================================================================
+//  CLEAR OLD SAMPLE DATA (Run once)
+// ================================================================
+
+function clearOldSampleData() {
+    // Check if old sample data exists
+    const patients = getPatients();
+    if (patients.length > 0 && patients[0].name === 'John Smith') {
+        localStorage.removeItem('patients');
+        localStorage.removeItem('appointments');
+        localStorage.removeItem('medicalRecords');
+        localStorage.removeItem('prescriptions');
+        console.log('🧹 Old sample data cleared!');
+        alert('✅ Old sample data cleared! Refresh the page.');
+    } else {
+        console.log('✅ No old sample data found.');
+        alert('✅ No old sample data to clear.');
+    }
+}
+
+// Auto-clear on load (optional - remove after first run)
+clearOldSampleData();
