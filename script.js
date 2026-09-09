@@ -1203,12 +1203,12 @@ function clearOldSampleData() {
         localStorage.removeItem('medicalRecords');
         localStorage.removeItem('prescriptions');
         console.log('🧹 Old sample data cleared!');
-        alert('✅ Old sample data cleared! Refresh the page.');
+        //alert('✅ Old sample data cleared! Refresh the page.');
     } else {
         console.log('✅ No old sample data found.');
-        alert('✅ No old sample data to clear.');
+        //alert('✅ No old sample data to clear.');
     }
 }
 
 // Auto-clear on load (optional - remove after first run)
-clearOldSampleData();
+// clearOldSampleData();
