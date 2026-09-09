@@ -62,64 +62,24 @@ function savePrescriptions(prescriptions) {
 // ================================================================
 
 function seedData() {
-    // Seed Patients
-    if (!localStorage.getItem('patients')) {
-        const patients = [
-            { 
-                id: 'p1', name: 'John Smith', dob: '1985-03-15', gender: 'Male', bloodGroup: 'A+',
-                email: 'john@email.com', phone: '+1 234 567 890', emergency: '+1 234 567 891', 
-                address: '123 Main St, New York, NY 10001',
-                insurance: 'BlueCross', policy: 'BC-12345', insuranceExpiry: '2025-12-31', groupNumber: 'GRP-001',
-                allergies: 'Penicillin, Peanuts', medications: 'Lisinopril 10mg', conditions: 'Hypertension',
-                username: 'john123', password: 'john123', registrationDate: '2024-01-15', status: 'active'
-            },
-            { 
-                id: 'p2', name: 'Sarah Johnson', dob: '1990-07-22', gender: 'Female', bloodGroup: 'B+',
-                email: 'sarah@email.com', phone: '+1 234 567 892', emergency: '+1 234 567 893',
-                address: '456 Oak Ave, Los Angeles, CA 90001',
-                insurance: 'Aetna', policy: 'AE-67890', insuranceExpiry: '2025-06-30', groupNumber: 'GRP-002',
-                allergies: 'None', medications: 'Cetirizine 10mg', conditions: 'Allergic Rhinitis',
-                username: 'sarah123', password: 'sarah123', registrationDate: '2024-02-20', status: 'active'
-            },
-            { 
-                id: 'p3', name: 'Michael Brown', dob: '1978-11-02', gender: 'Male', bloodGroup: 'O-',
-                email: 'michael@email.com', phone: '+1 234 567 894', emergency: '+1 234 567 895',
-                address: '789 Pine St, Chicago, IL 60601',
-                insurance: 'Cigna', policy: 'CI-24680', insuranceExpiry: '2025-09-15', groupNumber: 'GRP-003',
-                allergies: 'Latex', medications: 'Sumatriptan 50mg', conditions: 'Migraine',
-                username: 'michael123', password: 'michael123', registrationDate: '2024-03-10', status: 'active'
-            },
-            { 
-                id: 'p4', name: 'Emily Davis', dob: '1995-05-30', gender: 'Female', bloodGroup: 'AB+',
-                email: 'emily@email.com', phone: '+1 234 567 896', emergency: '+1 234 567 897',
-                address: '321 Elm Blvd, Houston, TX 77001',
-                insurance: 'UnitedHealth', policy: 'UH-13579', insuranceExpiry: '2025-11-20', groupNumber: 'GRP-004',
-                allergies: 'Sulfa', medications: 'Topical Retinoids', conditions: 'Acne Vulgaris',
-                username: 'emily123', password: 'emily123', registrationDate: '2024-04-05', status: 'active'
-            },
-            { 
-                id: 'p5', name: 'Robert Wilson', dob: '1982-09-10', gender: 'Male', bloodGroup: 'B-',
-                email: 'robert@email.com', phone: '+1 234 567 898', emergency: '+1 234 567 899',
-                address: '654 Maple Dr, Phoenix, AZ 85001',
-                insurance: 'Medicare', policy: 'MC-97531', insuranceExpiry: '2025-08-01', groupNumber: 'GRP-005',
-                allergies: 'Aspirin', medications: 'Ibuprofen 400mg', conditions: 'Osteoarthritis',
-                username: 'robert123', password: 'robert123', registrationDate: '2024-05-20', status: 'active'
-            }
-        ];
-        savePatients(patients);
-    }
-
-    // Seed Doctors
+    // Seed DOCTORS only (no patients, appointments, or records)
     if (!localStorage.getItem('doctors')) {
         const doctors = [
             { id: 'd1', name: 'Dr. Alice Williams', specialty: 'Cardiology', email: 'alice@hospital.com', phone: '+1 234 567 800', availability: 'Mon-Fri, 9:00 AM - 5:00 PM' },
             { id: 'd2', name: 'Dr. Robert Chen', specialty: 'Neurology', email: 'robert@hospital.com', phone: '+1 234 567 801', availability: 'Mon-Thu, 8:00 AM - 4:00 PM' },
             { id: 'd3', name: 'Dr. Maria Garcia', specialty: 'Pediatrics', email: 'maria@hospital.com', phone: '+1 234 567 802', availability: 'Tue-Sat, 10:00 AM - 6:00 PM' },
             { id: 'd4', name: 'Dr. James Taylor', specialty: 'Orthopedics', email: 'james@hospital.com', phone: '+1 234 567 803', availability: 'Mon-Fri, 8:30 AM - 5:30 PM' },
-            { id: 'd5', name: 'Dr. Lisa Anderson', specialty: 'Dermatology', email: 'lisa@hospital.com', phone: '+1 234 567 804', availability: 'Wed-Mon, 9:00 AM - 5:00 PM' }
+            { id: 'd5', name: 'Dr. Lisa Anderson', specialty: 'Dermatology', email: 'lisa@hospital.com', phone: '+1 234 567 804', availability: 'Wed-Mon, 9:00 AM - 5:00 PM' },
+            // Add your new doctors here
+            { id: 'd6', name: 'Dr. Sarah Patel', specialty: 'General Medicine', email: 'sarah@hospital.com', phone: '+1 234 567 805', availability: 'Mon-Sat, 8:00 AM - 6:00 PM' },
+            { id: 'd7', name: 'Dr. John Kim', specialty: 'Family Medicine', email: 'john@hospital.com', phone: '+1 234 567 806', availability: 'Mon-Fri, 9:00 AM - 7:00 PM' }
         ];
         saveDoctors(doctors);
     }
+
+    // ONLY seed doctors - NO patients, appointments, or records
+    // This ensures the app starts empty except for doctors
+}
 
     // Seed Appointments
     if (!localStorage.getItem('appointments')) {
@@ -156,7 +116,7 @@ function seedData() {
         ];
         savePrescriptions(prescriptions);
     }
-}
+
 
 // ================================================================
 //  AUTHENTICATION
