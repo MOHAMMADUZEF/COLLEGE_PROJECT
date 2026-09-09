@@ -1055,7 +1055,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (loginUser(username, password)) {
                 window.location.href = 'dashboard.html';
             } else {
-                alert('❌ Invalid credentials!\n\nAdmin: admin / admin123\nPatient: Use registered username/password');
+                alert('❌ Invalid credentials!\n\nAdmin: admin / admin@$123\nPatient: Use registered username/password');
             }
         });
     }
